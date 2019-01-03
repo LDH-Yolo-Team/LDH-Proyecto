@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 
 
-class VideoTest {
+public class VideoTest {
 
 	private static String path;
 	private static TinyYoloModel model;
