@@ -37,4 +37,13 @@ class VideoTest {
 
 	}
 
+	@Test
+	@DisplayName("Comprobando JFrame")
+	public void testJFrame(){
+		ObjectDetectorFromVideo obj = new ObjectDetectorFromVideo();
+		obj.createJFrame();
+		assertTrue(obj.ventana.isActive() == true, "Ventana activa");
+		assertTrue(obj.ventana.isVisible() == true, "Ventana visible");
+	}
+
 }
