@@ -3,6 +3,7 @@ package com.packt.java_dl.transfer_learning.video_object_detection;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +27,7 @@ public class VideoTest {
 	}
 
 	@Test
+	@Disabled
 	@DisplayName("Comprobando abrir fichero de vídeo")
 	public void testFile() {
 
@@ -36,7 +38,8 @@ public class VideoTest {
 
 	}
 
-	/*@Test
+	@Test
+	@Disabled
 	@DisplayName("Comprobando JFrame")
 	public void testJFrame(){
 		ObjectDetectorFromVideo obj = new ObjectDetectorFromVideo();
@@ -45,6 +48,6 @@ public class VideoTest {
 		assertTrue(obj.ventana.isVisible(), "Ventana visible");
 		assertTrue(obj.ventana.isResizable(), "Ventana redimensionable");
 		assertTrue(obj.ventana.getTitle() != null);
-	}*/
+	}
 
 }
