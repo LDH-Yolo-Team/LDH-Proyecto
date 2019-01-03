@@ -1,14 +1,13 @@
 package com.packt.java_dl.transfer_learning.video_object_detection;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
-public class YoloTest {
+import junit.framework.TestCase;
+
+public class Test extends TestCase {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -26,11 +25,8 @@ public class YoloTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
 	public void test() {
-		  static final TinyYoloModel yolo = new TinyYoloModel();   
-		  
-		  fail("test1 found!!", yolo.getPretrainedModel());       
+		  assertTrue("Se puede acceder al modelo", TinyYoloModel.getPretrainedModel() != null);       
 	}
 
 }
