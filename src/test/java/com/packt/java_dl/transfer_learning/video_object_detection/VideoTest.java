@@ -44,6 +44,8 @@ public class VideoTest {
 		obj.createJFrame();
 		assertTrue(obj.ventana.isActive(), "Ventana activa");
 		assertTrue(obj.ventana.isVisible(), "Ventana visible");
+		assertTrue(obj.ventana.isResizable(), "Ventana redimensionable");
+		assertTrue(obj.ventana.getTitle() != null);
 	}
 
 }
