@@ -1,32 +1,40 @@
 package com.packt.java_dl.transfer_learning.video_object_detection;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.junit.jupiter.api.Assertions.*;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-public class Test extends TestCase {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+
+class VideoTest {
+
+	private static String path;
+	private static TinyYoloModel model;
+
+	@BeforeAll
+	public static void init() {
+		model = TinyYoloModel.getPretrainedModel();
+		path = "data/videoSample.mp4";
 	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	@Test
+	@DisplayName("Comprobando acceso al modelo")
+	public void testModel() {		
+		assertTrue(model != null, "Se puede acceder al modelo");
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
+	@Test
+	@DisplayName("Comprobando abrir fichero de vídeo")
+	public void testFile() {
 
-	@After
-	public void tearDown() throws Exception {
-	}
+		Throwable exception = assertThrows(java.lang.Exception.class, () -> {
+			new ObjectDetectorFromVideo().startRealTimeVideoDetection(path, model);
+			throw new Exception("fichero no válido");
+		});
+		assertEquals("fichero no válido", exception.getMessage());
 
-	public void test() {
-		  assertTrue("Se puede acceder al modelo", TinyYoloModel.getPretrainedModel() != null);       
 	}
 
 }
