@@ -29,11 +29,10 @@ public class VideoTest {
 	@DisplayName("Comprobando abrir fichero de vídeo")
 	public void testFile() {
 
-		Throwable exception = assertThrows(java.lang.Exception.class, () -> {
-			new ObjectDetectorFromVideo().startRealTimeVideoDetection(path, model);
-			throw new Exception("fichero no válido");
+		Throwable exception = assertThrows(org.bytedeco.javacv.FrameGrabber.Exception.class, () -> {
+			new ObjectDetectorFromVideo().startRealTimeVideoDetection("Wrong path", model);
 		});
-		assertEquals("fichero no válido", exception.getMessage());
+		assertTrue(exception.getMessage() instanceof String, "La excepción tiene un mensaje");
 
 	}
 
@@ -42,8 +41,8 @@ public class VideoTest {
 	public void testJFrame(){
 		ObjectDetectorFromVideo obj = new ObjectDetectorFromVideo();
 		obj.createJFrame();
-		assertTrue(obj.ventana.isActive() == true, "Ventana activa");
-		assertTrue(obj.ventana.isVisible() == true, "Ventana visible");
+		assertTrue(obj.ventana.isActive(), "Ventana activa");
+		assertTrue(obj.ventana.isVisible(), "Ventana visible");
 	}
 
 }
