@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 
 
-public class VideoTest {
+class VideoTest {
 
 	private static String path;
 	private static TinyYoloModel model;
@@ -35,6 +35,15 @@ public class VideoTest {
 		});
 		assertEquals("fichero no válido", exception.getMessage());
 
+	}
+
+	@Test
+	@DisplayName("Comprobando JFrame")
+	public void testJFrame(){
+		ObjectDetectorFromVideo obj = new ObjectDetectorFromVideo();
+		obj.createJFrame();
+		assertTrue(obj.ventana.isActive() == true, "Ventana activa");
+		assertTrue(obj.ventana.isVisible() == true, "Ventana visible");
 	}
 
 }
