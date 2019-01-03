@@ -28,7 +28,9 @@ public class YoloTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		  static final TinyYoloModel yolo = new TinyYoloModel();   
+		  
+		  fail("test1 found!!", yolo.getPretrainedModel());       
 	}
 
 }
