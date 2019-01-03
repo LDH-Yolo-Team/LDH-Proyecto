@@ -4,9 +4,9 @@ dist: trusty
 install: true
 addons:
   sonarcloud:
-    organization: "ldh-yolo-team"
+    organization: "yolo"
     token:
-      secure: "2111eb579d4959d145da2959cf915f82275b3160"
+      secure: "de409cfd638918e3f31b186804c3eb874294ed6a"
 jdk:
   - oraclejdk8
 script:
