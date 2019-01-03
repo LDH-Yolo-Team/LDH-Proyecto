@@ -4,17 +4,21 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 import junit.framework.TestCase;
 
-public class Test extends TestCase {
+public class TestODFV extends TestCase {
+
+	private static TinyYoloModel yolo;
 
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public static void setUpBeforeClass() {
+		yolo = TinyYoloModel.getPretrainedModel();
 	}
 
 	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	public static void tearDownAfterClass() {
 	}
 
 	@Before
@@ -25,8 +29,14 @@ public class Test extends TestCase {
 	public void tearDown() throws Exception {
 	}
 
-	public void test() {
+	@Test 
+	public void testGPM() {
 		  assertTrue("Se puede acceder al modelo", TinyYoloModel.getPretrainedModel() != null);       
 	}
+	
+	/*@Test
+	public void testGS() {
+		assertTrue("Se puede acceder al summary", yolo.getSummary() instanceof String );
+	}*/
 
 }
