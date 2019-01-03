@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -21,16 +22,16 @@
 		<logback.version>1.2.3</logback.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		
 
-    <maven.compiler.source>1.6</maven.compiler.source>
 
-    <maven.compiler.target>1.6</maven.compiler.target>
-		
+		<maven.compiler.source>1.6</maven.compiler.source>
+
+		<maven.compiler.target>1.6</maven.compiler.target>
+
 		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-  <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-  <sonar.language>java</sonar.language>
-		
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
+
 	</properties>
 
 	<dependencies>
@@ -119,15 +120,15 @@
 			<artifactId>jcodec</artifactId>
 			<version>0.2.3</version>
 		</dependency>
-		
-		 <dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.11</version>
-    <scope>test</scope>
-  </dependency>
-		
-		
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.3.2</version>
+			<scope>test</scope>
+		</dependency>
+
+
 	</dependencies>
 	<repositories>
 		<repository>
@@ -206,37 +207,37 @@
 					</execution>
 				</executions>
 			</plugin>
-			
-			
-					
+
+
+
 			<!-- Doxygen -->
 			<plugin>
-                <groupId>de.oscillation.maven</groupId>
-                <artifactId>doxygen-maven-plugin</artifactId>
-                <version>0.1.0</version>
-                <configuration>
-                    <workingDirectory>${basedir}</workingDirectory>
-                    <executable>doxygen</executable>
-                    <doxyfile>Doxyfile</doxyfile>
-                    <autogen>false</autogen>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>clean</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>generate</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+				<groupId>de.oscillation.maven</groupId>
+				<artifactId>doxygen-maven-plugin</artifactId>
+				<version>0.1.0</version>
+				<configuration>
+					<workingDirectory>${basedir}</workingDirectory>
+					<executable>doxygen</executable>
+					<doxyfile>Doxyfile</doxyfile>
+					<autogen>false</autogen>
+				</configuration>
+				<executions>
+					<execution>
+						<id>clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
