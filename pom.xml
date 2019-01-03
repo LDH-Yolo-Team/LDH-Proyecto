@@ -21,6 +21,16 @@
 		<logback.version>1.2.3</logback.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		
+
+    <maven.compiler.source>1.6</maven.compiler.source>
+
+    <maven.compiler.target>1.6</maven.compiler.target>
+		
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+  <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+  <sonar.language>java</sonar.language>
+		
 	</properties>
 
 	<dependencies>
@@ -109,6 +119,15 @@
 			<artifactId>jcodec</artifactId>
 			<version>0.2.3</version>
 		</dependency>
+		
+		 <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.11</version>
+    <scope>test</scope>
+  </dependency>
+		
+		
 	</dependencies>
 	<repositories>
 		<repository>
@@ -187,6 +206,9 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			
+					
 			<!-- Doxygen -->
 			<plugin>
                 <groupId>de.oscillation.maven</groupId>
