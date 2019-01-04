@@ -41,13 +41,13 @@ jobs:
       - run: mvn test
       
       #Jacoco
-      -run: mvn org.jacoco:jacoco-maven-plugin:prepare-agent
+      - run: mvn org.jacoco:jacoco-maven-plugin:prepare-agent
       
       #Package
-      -run: mvn package
+      - run: mvn package
       
       #Javadoc
-      -run: mvn javadoc:javadoc
+      - run: mvn javadoc:javadoc
       
       #Sonar
-      sonar-scanner
+      - run: sonar-scanner
