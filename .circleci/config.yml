@@ -50,4 +50,4 @@ jobs:
       - run: mvn javadoc:javadoc
       
       #Sonar
-      - run: mvn sonar:sonar
+      - run: mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN
