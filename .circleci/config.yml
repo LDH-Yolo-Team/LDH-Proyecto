@@ -50,4 +50,4 @@ jobs:
       - run: mvn javadoc:javadoc
       
       #Sonar
-      - run: sonar-scanner
+      - run: mvn sonar:sonar
