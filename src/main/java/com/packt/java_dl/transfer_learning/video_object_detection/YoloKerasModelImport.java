@@ -55,7 +55,7 @@ public class YoloKerasModelImport {
 			ComputationGraph model = new TransferLearning.GraphBuilder(graph).fineTuneConfiguration(fineTuneConf)
 					.addLayer("outputs", new Yolo2OutputLayer.Builder().boundingBoxPriors(priors).build(), "conv2d_9")
 					.setOutputs("outputs").build();
-			ObjectDetectorFromVideo.logger.log(Level.INFO,model.summary(InputType.convolutional(416, 416, 3)));
+			ObjectDetectorFromVideo.logger.log(Level.INFO,"{0}",model.summary(InputType.convolutional(416, 416, 3)));
 
 			ModelSerializer.writeModel(model, "bin/Yolo_v3.zip", false);
 		} catch (UnsupportedKerasConfigurationException e) {

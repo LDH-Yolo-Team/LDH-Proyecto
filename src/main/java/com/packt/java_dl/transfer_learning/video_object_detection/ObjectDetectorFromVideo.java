@@ -89,15 +89,16 @@ public class ObjectDetectorFromVideo {
      */
     public void startRealTimeVideoDetection(String videoFileName, TinyYoloModel model) throws org.bytedeco.javacv.FrameGrabber.Exception {
     	String windowName = "Object Detection from Video";
-        FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber(videoFileName);
-        frameGrabber.start();
-
-        Frame frame;
-        double frameRate = frameGrabber.getFrameRate();
-        ObjectDetectorFromVideo.logger.log(Level.INFO,"The inputted video clip has {0} frames", frameGrabber.getLengthInFrames());
-        ObjectDetectorFromVideo.logger.log(Level.INFO, "The inputted video clip has frame rate of {0} ", frameRate);
+    	FFmpegFrameGrabber frameGrabber = null;
 
         try {
+        	frameGrabber = new FFmpegFrameGrabber(videoFileName);
+            frameGrabber.start();
+
+            Frame frame;
+            double frameRate = frameGrabber.getFrameRate();
+            ObjectDetectorFromVideo.logger.log(Level.INFO,"The inputted video clip has {0} frames", frameGrabber.getLengthInFrames());
+            ObjectDetectorFromVideo.logger.log(Level.INFO, "The inputted video clip has frame rate of {0} ", frameRate);
             for(int i = 1; i < frameGrabber.getLengthInFrames(); i+=(int)frameRate) {
                 frameGrabber.setFrameNumber(i);
                 frame = frameGrabber.grab();
