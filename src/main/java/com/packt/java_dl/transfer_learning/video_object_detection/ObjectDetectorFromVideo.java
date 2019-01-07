@@ -116,9 +116,9 @@ public class ObjectDetectorFromVideo {
         } catch (IOException e) {
         	ObjectDetectorFromVideo.logger.log(Level.WARNING, "Error de entrada y salida", e);
         } finally {
-            frameGrabber.stop();
+            if (frameGrabber != null) frameGrabber.stop();
+            frameGrabber.close();
         }
-        frameGrabber.close();
     }
 	
 }
