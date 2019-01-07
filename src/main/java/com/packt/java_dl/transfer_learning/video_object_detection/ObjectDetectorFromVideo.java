@@ -91,8 +91,8 @@ public class ObjectDetectorFromVideo {
     	String windowName = "Object Detection from Video";
     	FFmpegFrameGrabber frameGrabber = null;
 
-        try {
-        	frameGrabber = new FFmpegFrameGrabber(videoFileName);
+        try (FFmpegFrameGrabber aux = new FFmpegFrameGrabber(videoFileName)){
+        	frameGrabber = aux;
             frameGrabber.start();
 
             Frame frame;
@@ -117,8 +117,8 @@ public class ObjectDetectorFromVideo {
         	ObjectDetectorFromVideo.logger.log(Level.WARNING, "Error de entrada y salida", e);
         } finally {
             if (frameGrabber != null) frameGrabber.stop();
-            frameGrabber.close();
         }
+        frameGrabber.close();
     }
 	
 }
