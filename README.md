@@ -15,5 +15,5 @@ cámara en tiempo real.
 
 * Maven
 * Eclipse
-* SonarQube
-* Tecnologías de integración continua (Travis, Jenkins)
+* [SonarCloud](https://sonarcloud.io/dashboard?id=com.example%3ACIFAR)
+* [CircleCI](https://circleci.com/gh/LDH-Yolo-Team/LDH-Proyecto)
